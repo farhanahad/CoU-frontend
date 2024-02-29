@@ -1,15 +1,21 @@
 "use client";
-import React, { useState } from "react";
+
+import { useState } from "react";
 import { Layout, Menu } from "antd";
+
 import { sidebarItems } from "@/constants/sidebarItems";
 import { USER_ROLE } from "@/constants/role";
 import { getUserInfo } from "@/services/auth.service";
+
 const { Sider } = Layout;
 
-const Sidebar = () => {
+const SideBar = () => {
   const [collapsed, setCollapsed] = useState(false);
+
+  // const role = USER_ROLE.ADMIN;
   const { role } = getUserInfo() as any;
-  console.log(role);
+  // console.log(role);
+
   return (
     <Sider
       collapsible
@@ -31,12 +37,12 @@ const Sidebar = () => {
           fontSize: "2rem",
           textAlign: "center",
           fontWeight: "bold",
-          marginBottom: "1rem",
+          marginBottom: ".5rem",
+          padding: "10px 0px",
         }}
       >
-        Comilla University
+        UMS
       </div>
-
       <Menu
         theme="dark"
         defaultSelectedKeys={["1"]}
@@ -47,4 +53,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SideBar;
